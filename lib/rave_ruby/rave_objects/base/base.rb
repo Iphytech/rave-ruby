@@ -33,8 +33,10 @@ class Base
     unless data.empty?
       http_params[:query] = data
     end
-
+  
     begin
+
+      puts http_params 
       response = HTTParty.get(endpoint, http_params)
       unless (response.code == 200 || response.code == 201)
         raise RaveServerError.new(response), "HTTP Code #{response.code}: #{response.body}"

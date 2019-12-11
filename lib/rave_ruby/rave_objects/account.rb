@@ -65,4 +65,17 @@ class Account < ChargeBase
         response = post_request("#{base_url}#{BASE_ENDPOINTS::VERIFY_ENDPOINT}", payload)
         return handle_verify_account_response(response)
     end
+
+    def refund(flwRef)
+        base_url = rave_object.base_url
+        payload = {
+            "flwRef" => flwRef,
+            "SECKEY" => rave_object.secret_key.dup,
+
+        }
+        payload = payload.to_json
+        response = post_request("#{base_url}#{BASE_ENDPOINTS::REFUND_ENDPOINT}", payload )
+        return handle_refund_response(response)
+
+    end
 end

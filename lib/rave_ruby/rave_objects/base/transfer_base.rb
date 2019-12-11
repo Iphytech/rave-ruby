@@ -77,4 +77,16 @@ class TransferBase < Base
         end
     end
 
+    def handle_transfer_recipient(response)
+        transfer_create_recipient = response
+        
+        if transfer_create_recipient.code == 200
+            response = {"error" => false, "returned_data" => JSON.parse(transfer_create_recipient.body)}
+            return response
+        else
+            response = {"error" => true, "returned_data" => JSON.parse(transfer_create_recipient.body)}
+            raise InitiateTransferError, response
+        end
+    end
+
 end

@@ -151,4 +151,20 @@ class ChargeBase < Base
       return JSON.parse(res.to_json)
     end
   end
-end 
+
+  #method to validate refund response
+
+  def handle_refund_response(response)
+    refund_response = response
+    status = refund_response["data"]["message"]
+
+    if status == "success"
+      res = { "error": false, "Refunded_completed": true, "data": refund_response["data"]}
+      return JSON.parse(res.to_json)
+    else
+      res = {"error": true, "refunded_completed": false, "data": refund_response["data"]}
+      return JSON.parse(res.to_json)
+    end
+  end
+
+  end 

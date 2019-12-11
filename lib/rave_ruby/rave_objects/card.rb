@@ -88,4 +88,15 @@ class Card < ChargeBase
         response = post_request("#{base_url}#{BASE_ENDPOINTS::VERIFY_ENDPOINT}", payload)
         return handle_verify_response(response)
     end
+
+    def refund(data)
+        base_url = rave_object.base_url
+        data.merge!({"seckey" => rave_object.secret_key.dup})
+        required_parameters = ["ref"]
+        check_passed_parameters(required_parameters, data)
+        payload = data.to_json
+        response = post_request("#{base_url}#{BASE_ENDPOINTS::REFUND_ENDPOINT}", payload )
+        return handle_refund_response(response)
+
+    end
 end

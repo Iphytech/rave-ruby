@@ -23,6 +23,8 @@ module Util
       return Base64.encode64(ciphertext)
     end
 
+    
+
     # def self.decrypt(key, ciphertext)
 
     #   cipher = OpenSSL::Cipher.new("des-ede3")

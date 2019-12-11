@@ -15,7 +15,7 @@ module BASE_ENDPOINTS
     SUBACCOUNT_ENDPOINT = "v2/gpx/subaccounts"
     GET_FEE_ENDPOINT = "v2/gpx/transfers/fee"
     GET_BALANCE_ENDPOINT = "v2/gpx/balance"
-    FETCH_ENDPOINT = "v2/gpx/transfers"
-    REFUND_ENDPOINT = "gpx/merchant/transactions"
+    REFUND_ENDPOINT = "gpx/merchant/transactions/refund"
     BANKS_ENDPOINT = "flwv3-pug/getpaidx/api/flwpbf-banks.js"
+    BILL_PAYMENTS_ENDPOINT = "v2/services/confluence"
 end
